@@ -25,7 +25,7 @@
     "url": "https://github.com/pingark/pingark-js/issues"
   },
   "license": "MIT",
-  "author": "Abhishek Das <inbox.adas@gmail.com>",
+  "author": "Abhishek Das <abhishek@virtueplanet.com>",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.cjs",

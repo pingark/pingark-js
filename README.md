@@ -260,4 +260,4 @@ Every option can be passed to `createPingArk`, or set through the matching envir
 
 ## License
 
-MIT. Copyright (c) 2026 Abhishek Das.
+MIT. Copyright (c) 2026 Virtueplanet Services LLP.
