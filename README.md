@@ -1,5 +1,9 @@
 # PingArk for JavaScript and TypeScript
 
+[![npm version](https://img.shields.io/npm/v/pingark.svg)](https://www.npmjs.com/package/pingark)
+[![Tests](https://github.com/pingark/pingark-js/actions/workflows/tests.yml/badge.svg)](https://github.com/pingark/pingark-js/actions/workflows/tests.yml)
+[![License](https://img.shields.io/npm/l/pingark.svg)](LICENSE)
+
 The framework-agnostic [PingArk](https://pingark.com) SDK for JavaScript and TypeScript, published on npm as [`pingark`](https://www.npmjs.com/package/pingark). Monitor your cron and scheduled jobs: wrap a job in one function and PingArk knows when it starts, when it finishes, how long it took, and what went wrong if it failed. You never touch a ping URL by hand.
 
 It works in any modern runtime with a global `fetch` (Node 18 and newer, Bun, Deno, and edge functions), so it fits Next.js, Nuxt, Express, Remix, SvelteKit, or plain Node, Bun, and Deno. Thin adapters for Next.js, Express, and Nuxt are included for the common cases.
