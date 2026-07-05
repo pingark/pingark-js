@@ -1,0 +1,13 @@
+# The published package ships only the built dist/ (see package.json "files").
+# Everything below is source and tooling that npm should not include.
+src/
+test/
+.github/
+node_modules/
+coverage/
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+.prettierrc.json
+.editorconfig
+*.log

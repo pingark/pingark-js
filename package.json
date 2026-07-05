@@ -1,0 +1,98 @@
+{
+  "name": "pingark",
+  "version": "1.0.0",
+  "description": "Framework-agnostic PingArk SDK for JavaScript and TypeScript. Monitor cron and scheduled tasks with start, success, failure, exit-code, and log signals, plus a monitor() wrapper and Next.js, Express, and Nuxt adapters.",
+  "keywords": [
+    "cron",
+    "monitoring",
+    "heartbeat",
+    "scheduler",
+    "pingark",
+    "dead-mans-switch",
+    "uptime",
+    "observability",
+    "nextjs",
+    "vercel-cron",
+    "nuxt",
+    "express"
+  ],
+  "homepage": "https://pingark.com/docs/javascript-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pingark/pingark-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pingark/pingark-js/issues"
+  },
+  "license": "MIT",
+  "author": "Abhishek Das <inbox.adas@gmail.com>",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./next": {
+      "import": {
+        "types": "./dist/next.d.ts",
+        "default": "./dist/next.mjs"
+      },
+      "require": {
+        "types": "./dist/next.d.cts",
+        "default": "./dist/next.cjs"
+      }
+    },
+    "./express": {
+      "import": {
+        "types": "./dist/express.d.ts",
+        "default": "./dist/express.mjs"
+      },
+      "require": {
+        "types": "./dist/express.d.cts",
+        "default": "./dist/express.cjs"
+      }
+    },
+    "./nuxt": {
+      "import": {
+        "types": "./dist/nuxt.d.ts",
+        "default": "./dist/nuxt.mjs"
+      },
+      "require": {
+        "types": "./dist/nuxt.d.cts",
+        "default": "./dist/nuxt.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "prettier": "^3.3.0",
+    "tsup": "^8.2.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
