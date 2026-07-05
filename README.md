@@ -4,9 +4,9 @@ The framework-agnostic [PingArk](https://pingark.com) SDK for JavaScript and Typ
 
 It works in any modern runtime with a global `fetch` (Node 18 and newer, Bun, Deno, and edge functions), so it fits Next.js, Nuxt, Express, Remix, SvelteKit, or plain Node, Bun, and Deno. Thin adapters for Next.js, Express, and Nuxt are included for the common cases.
 
-- Full guide: https://pingark.com/docs/javascript-sdk
-- Ping API reference: https://pingark.com/docs/ping-api
-- Management API reference: https://pingark.com/docs/api
+- [Full guide](https://pingark.com/docs/javascript-sdk)
+- [Ping API reference](https://pingark.com/docs/ping-api)
+- [Management API reference](https://pingark.com/docs/api)
 
 ## Contents
 
