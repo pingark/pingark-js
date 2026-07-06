@@ -17,13 +17,21 @@ export interface PingArkConfig {
   enabled?: boolean
 
   /**
-   * The PingArk instance base URL, with no trailing slash needed. Env:
-   * `PINGARK_BASE_URL`. Default: `https://pingark.com`.
+   * The ingestion base URL your pings are sent to (Architecture §2), with no
+   * trailing slash needed. Env: `PINGARK_BASE_URL`. Default:
+   * `https://ping.pingark.com`.
    */
   baseUrl?: string
 
   /**
-   * The project ping key (Project settings, Ping key). It drives slug-scheme
+   * The Management API base URL used by {@link PingArkClient.api}, a separate
+   * surface from ingestion so its security can be managed independently. Env:
+   * `PINGARK_API_BASE_URL`. Default: `https://api.pingark.com`.
+   */
+  apiBaseUrl?: string
+
+  /**
+   * The project ping key (Project settings, Project ping key). It drives slug-scheme
    * ping URLs. Not needed when you ping a full check URL directly. Env:
    * `PINGARK_PING_KEY`.
    */
@@ -63,6 +71,7 @@ export interface PingArkConfig {
 export interface ResolvedConfig {
   enabled: boolean
   baseUrl: string
+  apiBaseUrl: string
   pingKey?: string
   apiKey?: string
   timeoutMs: number

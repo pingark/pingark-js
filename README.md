@@ -209,7 +209,7 @@ await log('nightly-job', 'processed 5,000 of 20,000 rows')
 To skip creating a check first, PingArk can make one on the very first ping. Add `?create=1` to a ping URL for a slug that does not exist yet and the check is created and armed on the spot:
 
 ```bash
-curl -fsS "https://pingark.com/ping/your-project-ping-key/nightly-job?create=1"
+curl -fsS "https://ping.pingark.com/ping/your-project-ping-key/nightly-job?create=1"
 ```
 
 Auto-provisioned checks get a generic schedule you can refine later. To set the schedule, timezone, and grace from the start, use the [management API](#the-management-api-client).
@@ -255,7 +255,8 @@ Every option can be passed to `createPingArk`, or set through the matching envir
 | Option         | Env                     | Default               | What it does                                                                      |
 | -------------- | ----------------------- | --------------------- | --------------------------------------------------------------------------------- |
 | `enabled`      | `PINGARK_ENABLED`       | `true`                | Master switch. Set to false to silence every ping.                                |
-| `baseUrl`      | `PINGARK_BASE_URL`      | `https://pingark.com` | Your PingArk instance.                                                            |
+| `baseUrl`      | `PINGARK_BASE_URL`      | `https://ping.pingark.com` | The ingestion base URL your pings are sent to.                               |
+| `apiBaseUrl`   | `PINGARK_API_BASE_URL`  | `https://api.pingark.com` | The management API base URL, used by the `api()` client.                      |
 | `pingKey`      | `PINGARK_PING_KEY`      | `undefined`           | The project ping key your task pings hit.                                         |
 | `apiKey`       | `PINGARK_API_KEY`       | `undefined`           | A read-write key, used only by the management API client.                         |
 | `timeoutMs`    | `PINGARK_TIMEOUT`       | `5000`                | Outbound ping timeout in milliseconds. The env var is read in whole seconds.      |

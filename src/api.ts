@@ -213,7 +213,7 @@ export class PingArkApi {
       )
     }
 
-    const url = new URL(`${this.config.baseUrl}/api/v1${path}`)
+    const url = new URL(`${this.config.apiBaseUrl}/api/v1${path}`)
     for (const [key, value] of Object.entries(options.query ?? {})) {
       url.searchParams.set(key, String(value))
     }

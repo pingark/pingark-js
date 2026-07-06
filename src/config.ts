@@ -1,6 +1,7 @@
 import type { PingArkConfig, ResolvedConfig } from './types'
 
-const DEFAULT_BASE_URL = 'https://pingark.com'
+const DEFAULT_BASE_URL = 'https://ping.pingark.com'
+const DEFAULT_API_BASE_URL = 'https://api.pingark.com'
 const DEFAULT_TIMEOUT_MS = 5000
 const DEFAULT_USER_AGENT = 'PingArk-JS'
 
@@ -48,9 +49,16 @@ export function resolveConfig(config: PingArkConfig = {}): ResolvedConfig {
     '',
   )
 
+  const apiBaseUrl = (
+    config.apiBaseUrl ??
+    env('PINGARK_API_BASE_URL') ??
+    DEFAULT_API_BASE_URL
+  ).replace(/\/+$/, '')
+
   return {
     enabled: config.enabled ?? envBool('PINGARK_ENABLED') ?? true,
     baseUrl,
+    apiBaseUrl,
     pingKey: config.pingKey ?? env('PINGARK_PING_KEY'),
     apiKey: config.apiKey ?? env('PINGARK_API_KEY'),
     timeoutMs: config.timeoutMs ?? envTimeoutMs ?? DEFAULT_TIMEOUT_MS,

@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest'
 import { createPingArk, PingArkApiError } from '../src/index'
 import { jsonResponse, mockFetch } from './helpers'
 
-const cfg = { baseUrl: 'https://api.test', apiKey: 'pa_secret' }
+const cfg = { apiBaseUrl: 'https://api.test', apiKey: 'pa_secret' }
 
 describe('PingArkApi', () => {
   it('throws when no API key is configured', async () => {
-    const api = createPingArk({ baseUrl: 'https://api.test' }).api()
+    const api = createPingArk({ apiBaseUrl: 'https://api.test' }).api()
 
     await expect(api.checks()).rejects.toThrow(/API key/i)
   })
