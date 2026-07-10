@@ -4,6 +4,15 @@ All notable changes to `pingark` are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- A one-time console notice when a ping is skipped because no ping key is
+  configured, pointing at setup. It prints at most once per process, never
+  when `NODE_ENV` is `production`, and never when the SDK is explicitly
+  disabled. The fail-open contract is unchanged.
+
 ## [1.0.0] - 2026-07-05
 
 Initial public release.

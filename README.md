@@ -4,9 +4,9 @@
 [![Tests](https://github.com/pingark/pingark-js/actions/workflows/tests.yml/badge.svg)](https://github.com/pingark/pingark-js/actions/workflows/tests.yml)
 [![License](https://img.shields.io/npm/l/pingark.svg)](LICENSE)
 
-The framework-agnostic [PingArk](https://pingark.com) SDK for JavaScript and TypeScript, published on npm as [`pingark`](https://www.npmjs.com/package/pingark). Monitor your cron and scheduled jobs: wrap a job in one function and PingArk knows when it starts, when it finishes, how long it took, and what went wrong if it failed. You never touch a ping URL by hand.
+Monitor Node.js cron jobs and scheduled tasks: wrap a job in one function and [PingArk](https://pingark.com) knows when it starts, when it finishes, how long it took, and what went wrong if it failed. The official framework-agnostic SDK for JavaScript and TypeScript, published on npm as [`pingark`](https://www.npmjs.com/package/pingark). You never touch a ping URL by hand.
 
-It works in any modern runtime with a global `fetch` (Node 18 and newer, Bun, Deno, and edge functions), so it fits Next.js, Nuxt, Express, Remix, SvelteKit, or plain Node, Bun, and Deno. Thin adapters for Next.js, Express, and Nuxt are included for the common cases.
+It works in any modern runtime with a global `fetch` (Node 18 and newer, Bun, Deno, and edge functions), so it fits Next.js, Nuxt, Express, Remix, SvelteKit, or plain Node, Bun, and Deno. Thin adapters for Next.js, Express, and Nuxt are included for the common cases. A [free account](https://pingark.com/register) covers 20 checks with no card required.
 
 - [Full guide](https://pingark.com/docs/javascript-sdk)
 - [Ping API reference](https://pingark.com/docs/ping-api)
@@ -245,6 +245,8 @@ The client covers the whole API: create, read, update, and delete checks, pause 
 ## How it stays out of your way
 
 Monitoring should never be the reason a job fails. Every ping has a short timeout and swallows its own errors, and it never retries. If PingArk is unreachable, your job runs exactly as it would without the SDK, and the next scheduled run pings again. When the SDK is disabled or the ping key is missing, the signals are a silent no-op.
+
+One courtesy outside that silence: if a ping is skipped because no ping key is configured, the SDK prints a single console notice pointing you at setup, once per process and never when `NODE_ENV` is `production`. Setting `enabled: false` (or `PINGARK_ENABLED=false`) keeps everything fully silent.
 
 The `monitor` wrapper reports a thrown error and then re-throws the original, so your own error handling still runs. The one deliberate exception is the `api()` management client. It is a setup tool, not part of a running job, so it surfaces errors rather than hiding them.
 

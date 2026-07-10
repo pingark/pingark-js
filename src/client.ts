@@ -6,6 +6,27 @@ import type { PingArkConfig, ResolvedConfig } from './types'
  * too; we cap client-side so a huge body never wastes a request. */
 const MAX_BODY_LENGTH = 100 * 1024
 
+/** Whether the unconfigured-SDK notice has already been printed (once per process). */
+let warnedUnconfigured = false
+
+/**
+ * Print the one-time onboarding notice for an unconfigured SDK: the developer
+ * wired up a ping call but no ping key resolved, so nothing is being
+ * recorded. At most once per process, never in production, and only from the
+ * silent-skip branch of {@link PingArkClient.send}, so the fail-open hot path
+ * (PRD §5.7) stays untouched: no output per ping, no throw, no slowdown.
+ */
+function warnUnconfiguredOnce(): void {
+  if (warnedUnconfigured) return
+  if (typeof process !== 'undefined' && process.env?.NODE_ENV === 'production') return
+  warnedUnconfigured = true
+  console.warn(
+    '[pingark] Ping skipped: no ping key is configured. ' +
+      'Create your free PingArk project at https://pingark.com/register, then set PINGARK_PING_KEY. ' +
+      'This notice prints once and never in production.',
+  )
+}
+
 /**
  * Sends pings to PingArk and wraps a run with {@link PingArkClient.monitor}.
  *
@@ -138,8 +159,15 @@ export class PingArkClient {
    */
   async send(check: string, suffix = '', body?: string | null): Promise<void> {
     // The fail-open guard: never ping when disabled, unconfigured, or the check
-    // could not be resolved. A silent no-op is the correct behaviour.
+    // could not be resolved. A silent no-op is the correct behaviour, except
+    // that a missing ping key earns a one-time development-only notice: the
+    // developer clearly meant to monitor (an explicit `enabled: false` asked
+    // for silence and stays silent).
     if (check === '' || !this.config.enabled || (!isUrl(check) && !this.config.pingKey)) {
+      if (this.config.enabled && check !== '' && !isUrl(check) && !this.config.pingKey) {
+        warnUnconfiguredOnce()
+      }
+
       return
     }
 
