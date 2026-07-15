@@ -13,7 +13,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   when `NODE_ENV` is `production`, and never when the SDK is explicitly
   disabled. The fail-open contract is unchanged.
 
-## [1.0.0] - 2026-07-05
+## [1.0.0] - 2026-07-15
 
 Initial public release.
 
