@@ -1,8 +1,8 @@
 # PingArk for JavaScript and TypeScript
 
-[![npm version](https://img.shields.io/npm/v/pingark.svg)](https://www.npmjs.com/package/pingark)
+[![npm version](https://img.shields.io/npm/v/pingark)](https://www.npmjs.com/package/pingark)
 [![Tests](https://github.com/pingark/pingark-js/actions/workflows/tests.yml/badge.svg)](https://github.com/pingark/pingark-js/actions/workflows/tests.yml)
-[![License](https://img.shields.io/npm/l/pingark.svg)](LICENSE)
+[![License](https://img.shields.io/npm/l/pingark)](LICENSE)
 
 Monitor Node.js cron jobs and scheduled tasks: wrap a job in one function and [PingArk](https://pingark.com) knows when it starts, when it finishes, how long it took, and what went wrong if it failed. The official framework-agnostic SDK for JavaScript and TypeScript, published on npm as [`pingark`](https://www.npmjs.com/package/pingark). You never touch a ping URL by hand.
 
