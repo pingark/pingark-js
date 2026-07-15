@@ -254,16 +254,16 @@ The `monitor` wrapper reports a thrown error and then re-throws the original, so
 
 Every option can be passed to `createPingArk`, or set through the matching environment variable. Options always win over the environment.
 
-| Option         | Env                     | Default               | What it does                                                                      |
-| -------------- | ----------------------- | --------------------- | --------------------------------------------------------------------------------- |
-| `enabled`      | `PINGARK_ENABLED`       | `true`                | Master switch. Set to false to silence every ping.                                |
-| `baseUrl`      | `PINGARK_BASE_URL`      | `https://ping.pingark.com` | The ingestion base URL your pings are sent to.                               |
-| `apiBaseUrl`   | `PINGARK_API_BASE_URL`  | `https://api.pingark.com` | The management API base URL, used by the `api()` client.                      |
-| `pingKey`      | `PINGARK_PING_KEY`      | `undefined`           | The project ping key your task pings hit.                                         |
-| `apiKey`       | `PINGARK_API_KEY`       | `undefined`           | A read-write key, used only by the management API client.                         |
-| `timeoutMs`    | `PINGARK_TIMEOUT`       | `5000`                | Outbound ping timeout in milliseconds. The env var is read in whole seconds.      |
-| `userAgent`    | `PINGARK_USER_AGENT`    | `PingArk-JS`          | The user agent sent with every ping, so you can spot the SDK in ping history.     |
-| `defaultCheck` | `PINGARK_DEFAULT_CHECK` | `undefined`           | An optional fallback check, so the signal helpers can be called with no argument. |
+| Option         | Env                     | Default                    | What it does                                                                      |
+| -------------- | ----------------------- | -------------------------- | --------------------------------------------------------------------------------- |
+| `enabled`      | `PINGARK_ENABLED`       | `true`                     | Master switch. Set to false to silence every ping.                                |
+| `baseUrl`      | `PINGARK_BASE_URL`      | `https://ping.pingark.com` | The ingestion base URL your pings are sent to.                                    |
+| `apiBaseUrl`   | `PINGARK_API_BASE_URL`  | `https://api.pingark.com`  | The management API base URL, used by the `api()` client.                          |
+| `pingKey`      | `PINGARK_PING_KEY`      | `undefined`                | The project ping key your task pings hit.                                         |
+| `apiKey`       | `PINGARK_API_KEY`       | `undefined`                | A read-write key, used only by the management API client.                         |
+| `timeoutMs`    | `PINGARK_TIMEOUT`       | `5000`                     | Outbound ping timeout in milliseconds. The env var is read in whole seconds.      |
+| `userAgent`    | `PINGARK_USER_AGENT`    | `PingArk-JS`               | The user agent sent with every ping, so you can spot the SDK in ping history.     |
+| `defaultCheck` | `PINGARK_DEFAULT_CHECK` | `undefined`                | An optional fallback check, so the signal helpers can be called with no argument. |
 
 ## License
 
